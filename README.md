@@ -5,3 +5,5 @@
 # Features
 
 - Basic shell colors
+- Basic vim
+- Basic vim-go

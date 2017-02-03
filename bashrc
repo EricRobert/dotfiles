@@ -16,3 +16,13 @@ export TERM=xterm-256color
 export GREP_OPTIONS='--color=auto'
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+
+# Repeat command N times.
+function repeat()
+{
+    local i max
+    max=$1; shift;
+    for ((i=1; i <= max ; i++)); do
+        eval "$@";
+    done
+}

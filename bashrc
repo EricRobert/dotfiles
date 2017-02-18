@@ -1,3 +1,14 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc) for examples.
+
+# if not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# run /etc/bashrc if it exists
 if [ -f /etc/bashrc ]; then
       . /etc/bashrc
 fi

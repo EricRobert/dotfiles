@@ -2,6 +2,8 @@
 
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc) for examples.
 
+. ~/.profile
+
 # if not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -10,7 +12,7 @@ esac
 
 # run /etc/bashrc if it exists
 if [ -f /etc/bashrc ]; then
-      . /etc/bashrc
+    . /etc/bashrc
 fi
 
 HISTCONTROL=ignoredups:ignorespace
@@ -19,14 +21,17 @@ HISTSIZE=4096
 shopt -s histappend
 shopt -s checkwinsize
 
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 alias df='df -kTh'
 alias du='du -kh'
 alias ll='ls -al'
 
 export TERM=xterm-256color
-export GREP_OPTIONS='--color=auto'
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # Repeat command N times.
 function repeat()

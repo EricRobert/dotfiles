@@ -23,9 +23,6 @@ if [ -n $GOROOT ] ; then
     if [ -d "$HOME/code/go" ] ; then
         export GOPATH=$HOME/code/go
     fi
-    if [ -d "$HOME/Code/go" ] ; then
-        export GOPATH=$HOME/Code/go
-    fi
 
     export GOROOT=$GOROOT
     PATH="$GOPATH/bin:$GOROOT/bin:$PATH"

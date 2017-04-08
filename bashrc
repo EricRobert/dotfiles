@@ -15,14 +15,19 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+PLATFORM=`uname`
+
 HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=4096
 
 shopt -s histappend
 shopt -s checkwinsize
 
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
+if [[ $PLATFORM != "Darwin" ]]; then
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+fi
+
 alias df='df -kTh'
 alias du='du -kh'
 alias ll='ls -al'

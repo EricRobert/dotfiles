@@ -1,4 +1,4 @@
-.PHONY: profile vim go
+.PHONY: profile vim go drone
 
 profile:
 	ln -sf ~/dotfiles/bash_profile ~/.bash_profile
@@ -13,3 +13,6 @@ vim:
 go:
 	git clone https://github.com/fatih/vim-go.git ~/dotfiles/vim/bundle/vim-go
 	vim +GoInstallBinaries +qall
+
+drone:
+	(cd drone && ./build.sh)

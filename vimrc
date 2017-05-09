@@ -5,8 +5,9 @@ syntax on
 
 set mouse=a
 set ruler
-set tabstop=4 expandtab softtabstop=4 shiftwidth=4
 set paste
+set tabstop=4
+set expandtab
 set incsearch
 set hlsearch
 set autowrite

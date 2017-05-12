@@ -12,7 +12,7 @@ vim:
 
 go:
 	git clone https://github.com/fatih/vim-go.git ~/dotfiles/vim/bundle/vim-go
-	vim +GoInstallBinaries +qall
+	(cd go && ./build.sh)
 
 drone:
 	(cd drone && ./build.sh)

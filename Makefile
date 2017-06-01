@@ -11,6 +11,7 @@ vim:
 	mkdir -p ~/dotfiles/vim/autoload ~/dotfiles/vim/bundle && curl -LSso ~/dotfiles/vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim	
 
 go:
+	rm -rf ~/dotfiles/vim/bundle/vim-go
 	git clone https://github.com/fatih/vim-go.git ~/dotfiles/vim/bundle/vim-go
 	(cd go && ./build.sh)
 

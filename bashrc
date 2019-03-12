@@ -31,7 +31,6 @@ fi
 alias df='df -kTh'
 alias du='du -kh'
 alias ll='ls -al'
-alias gg='cd $MNT'
 
 export TERM=xterm-256color
 export CLICOLOR=1

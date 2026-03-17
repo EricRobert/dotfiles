@@ -1,0 +1,6 @@
+DIR=$HOME/code/github/ericrobert
+mkdir -p $DIR
+cd $DIR
+git clone git@github.com:EricRobert/dotfiles.git
+cd dotfiles
+make

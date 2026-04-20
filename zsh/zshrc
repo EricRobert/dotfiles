@@ -47,3 +47,8 @@ PROMPT='%F{cyan}%n@%m%f %F{yellow}%~%f %# '
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 bindkey '^R' history-incremental-search-backward
+
+# Environment
+
+export GOPATH="$HOME/.go"
+export PATH="$GOPATH/bin:$HOME/.local/bin:$PATH"

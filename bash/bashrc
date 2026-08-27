@@ -31,3 +31,12 @@ PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 export GOPATH=$HOME/.go
 export PATH=$GOPATH/bin:$HOME/.local/bin:/usr/local/go/bin:$PATH
+
+fixssh() {
+    if [ -z "$TMUX" ]; then
+        echo "fixssh: not in a tmux session" >&2
+        return 1
+    fi
+
+    eval "$(tmux show-environment -s SSH_AUTH_SOCK)"
+}

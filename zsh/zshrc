@@ -52,3 +52,14 @@ bindkey '^R' history-incremental-search-backward
 
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$HOME/.local/bin:$PATH"
+
+# Functions
+
+fixssh() {
+    if [ -z "$TMUX" ]; then
+        echo "fixssh: not in a tmux session" >&2
+        return 1
+    fi
+
+    eval "$(tmux show-environment -s SSH_AUTH_SOCK)"
+}

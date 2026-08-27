@@ -53,6 +53,21 @@ bindkey '^R' history-incremental-search-backward
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$HOME/.local/bin:$PATH"
 
+# ssh binds SSH_AUTH_SOCK to a socket it makes for one login and removes at
+# logout, so a shell outliving that login - a reattached tmux pane, a shell
+# resumed after the laptop slept - holds a path nothing listens on. The link
+# below is repointed by each login and named by every shell, so one path reaches
+# whichever agent is current. Relinked only from a real socket, which is what ssh
+# hands a fresh login and never what this exports.
+if [ -S "$SSH_AUTH_SOCK" ] && [ ! -h "$SSH_AUTH_SOCK" ]; then
+    mkdir -p "$HOME/.ssh"
+    ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/agent.sock"
+fi
+
+if [ -h "$HOME/.ssh/agent.sock" ]; then
+    export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
+fi
+
 # Functions
 
 fixssh() {
